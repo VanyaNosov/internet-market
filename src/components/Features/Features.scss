@@ -1,0 +1,25 @@
+.features {
+    margin-bottom: 40px;
+    width: 100%;
+    &__wrapper {
+        display: flex;
+        gap: 30px;
+    }
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8px 16px;
+    background: #FFFFFF;
+
+    p {
+        font-size: 14px;
+        line-height: 20px;
+        color: #666666;
+    }
+}
+
+.feature.bg-gray {
+    background: #F4F8FB;
+}

@@ -1,0 +1,49 @@
+.product-details {
+    margin-bottom: 30px;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    &__top-title {
+        font-size: 32px;
+        line-height: 36px;
+        color: #333333;
+        font-weight: 700;
+    }
+
+    &__top-code-text {
+        font-size: 14px;
+        line-height: 20px;
+        color: #999999;
+    }
+
+    &__top-reviews {
+        p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #999;
+        }
+    }
+
+    &__tabs {
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #E6E6E6;
+    }
+
+    &__tab {
+        font-weight: 700;
+        font-size: 16px;
+        color: #333333;
+        padding: 12px;
+        cursor: pointer;
+    }
+    &__tab.active {
+        color: #01579B;
+        border-bottom: 1px solid #01579B;
+    }
+}

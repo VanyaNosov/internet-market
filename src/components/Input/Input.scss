@@ -1,0 +1,27 @@
+.create {
+    &__form-input,
+    &__form-textarea {
+        width: 400px;
+        background: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        height: 42px;
+        padding: 10px 13px;
+        outline: none;
+        color: #000;
+        font-size: 14px;
+
+        &::placeholder {
+            color: #999999;
+            font-size: 14px;
+        }
+    }
+
+    &__form-textarea {
+        resize: none;
+        height: 100px;
+    }
+    &__form-textarea.news {
+        height: 300px;
+    }
+}

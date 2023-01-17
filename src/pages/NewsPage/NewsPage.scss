@@ -1,0 +1,15 @@
+.news-page {
+    padding-bottom: 24px;
+
+    &__title {
+        font-weight: 700;
+        font-size: 28px;
+        color: #333333;
+        margin-bottom: 24px;
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 16px;
+    }
+}

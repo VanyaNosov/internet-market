@@ -1,0 +1,127 @@
+.products {
+    margin-bottom: 80px;
+
+    h2 {
+        font-weight: 700;
+        font-size: 28px;
+        margin-bottom: 24px;
+        color: #333333;
+    }
+
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+.product {
+    &__wrapper {
+        position: relative;
+        width: 240px;
+        height: 415px;
+        padding: 12px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 10px rgba(50, 50, 71, 0.14);
+        border-radius: 4px;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        position: absolute;
+        gap: 10px;
+    }
+
+    &__new {
+        width: 70px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #E93232;
+        color: #FFFFFF;
+    }
+
+    &__icons {
+        display: flex;
+        gap: 5px;
+    }
+
+    &__img {
+        padding-top: 35px;
+        width: 214px;
+        height: 214px;
+        margin-bottom: 40px;
+
+        img {
+            width: 100%;
+            height: 214px;
+            object-fit:contain;
+        }
+    }
+
+    &__name {
+        color: #333333;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    &__reviews {
+        color: #999999;
+        margin-bottom: 15px;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 18px;
+
+        span {
+            font-size: 12px;
+        }
+    }
+
+    &__btn {
+        width: 73px;
+        height: 32px;
+        background: #06A56C;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #F4F8FB;
+        font-weight: 700;
+        font-size: 12px;
+    }
+    ul.react-star-rate{
+        width: 76px !important; 
+    }
+    &__discount{
+        position: relative;
+    }
+    &__price-old{
+        position: absolute;
+        top: -12px;
+        right: -16px;
+        color: #999999;
+        font-size: 12px;
+        text-decoration: line-through;
+    }
+}
+
+.new__price-discount{
+    font-size: 18px;
+    font-weight: 700;
+    color: #E93232;
+}

@@ -1,0 +1,30 @@
+.partners {
+    margin-bottom: 40px;
+
+    h2 {
+        font-weight: 700;
+        font-size: 28px;
+        color: #333333;
+    }
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+    &__link{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #01579B;
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+}
