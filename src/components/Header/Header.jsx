@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { links, navlinks } from '../../constants/navlinks'
 import { AiOutlineUser, AiFillPlusCircle } from 'react-icons/ai'
@@ -8,10 +8,13 @@ import { GrCatalog } from 'react-icons/gr'
 import { BsSearch } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { TbNewSection } from 'react-icons/tb'
+import { RxCross1 } from 'react-icons/rx'
 import { useSelector } from 'react-redux'
+import SearchWindow from '../SearchWindow/SearchWindow'
 
-const Header = ({ showSidebar, setShowSidebar }) => {
+const Header = ({ setShowSidebar }) => {
     const { user } = useSelector(state => state.userSlice)
+    const [searchTerm, setSearhTerm] = useState("")
     return (
         <header className='header'>
             <div className='header__top'>
@@ -68,7 +71,18 @@ const Header = ({ showSidebar, setShowSidebar }) => {
                             </button>
                         </div>
                         <div className='header__content-search'>
-                            <input type="text" placeholder='Поиск ' />
+                            <input
+                                type="text"
+                                placeholder='Поиск '
+                                value={searchTerm}
+                                onChange={e => setSearhTerm(e.target.value)}
+
+                            />
+                            {searchTerm && <RxCross1 onClick={() => setSearhTerm("")}
+                            color='#000' fontSize={20} style={{
+                                margin: '0 20px 0 -40px',
+                                cursor: "pointer"
+                            }}/>}
                             <button>
                                 <BsSearch color='white' fontSize={20} />
                             </button>
@@ -89,6 +103,7 @@ const Header = ({ showSidebar, setShowSidebar }) => {
                     </div>
                 </div>
             </div>
+            <SearchWindow searchTerm={searchTerm} setSearchTerm={setSearhTerm}/>
         </header>
     )
 }
