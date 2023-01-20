@@ -3,10 +3,19 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { GiScales } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 import StarsRating from "react-star-rate";
+import { addToCart } from '../../store/slices/cartSlice';
+import {useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import './Product.scss'
 
 const Product = ({ product: { name, price, img, reviews,
     discount, rating, isNew }, id }) => {
+    const {products} = useSelector(state => state.productsSlice);
+    const dispatch = useDispatch();
+    const dispatchToCart = (id) => {
+        const currentProduct = products?.find(prod => prod._id === id)
+        dispatch(addToCart({...currentProduct, quantity: 1}))
+    }
     return (
         <div className='product__wrapper'>
             <div className='product__top'>
@@ -53,7 +62,7 @@ const Product = ({ product: { name, price, img, reviews,
                         {price} <span>грн.</span>
                     </p>
                 )}
-                <button className='product__btn'>
+                <button onClick={() => dispatchToCart(id)} className='product__btn'>
                     КУПИТЬ
                 </button>
             </div>

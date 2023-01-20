@@ -16,15 +16,11 @@ const SearchWindow = ({ searchTerm, setSearchTerm }) => {
         product.category.toLowerCase().includes(searchTerm.toLowerCase())
     )
     const categoriesArray = filteredProductsByCategory?.map((product) => product.category)
-    console.log("🚀 ~ file: SearchWindow.jsx:19 ~ SearchWindow ~ categoriesArray", categoriesArray)
     const uniqueCategories = categoriesArray?.filter((category, i) => {
         return categoriesArray.indexOf(category) === i
     })
-    console.log("🚀 ~ file: SearchWindow.jsx:19 ~ uniqueCategories ~ uniqueCategories", uniqueCategories)
-
-
+    
     if (!searchTerm) return null;
-
 
     return (
         <div className='search-window__wrapper'>

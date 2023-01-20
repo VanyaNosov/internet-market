@@ -1,22 +1,31 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { links, navlinks } from '../../constants/navlinks'
-import { AiOutlineUser, AiFillPlusCircle } from 'react-icons/ai'
+import { navlinks } from '../../constants/navlinks'
+import { AiOutlineUser, AiFillPlusCircle, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import './Header.scss'
 import logo from '../../assets/Logo.png'
 import { GrCatalog } from 'react-icons/gr'
 import { BsSearch } from 'react-icons/bs'
-import { GiHamburgerMenu } from 'react-icons/gi'
+import { GiHamburgerMenu, GiScales } from 'react-icons/gi'
 import { TbNewSection } from 'react-icons/tb'
 import { RxCross1 } from 'react-icons/rx'
 import { useSelector } from 'react-redux'
 import SearchWindow from '../SearchWindow/SearchWindow'
+import Cart from '../Cart/Cart'
 
 const Header = ({ setShowSidebar }) => {
+    const {cartItems} = useSelector(state => state.cartSlice);
+    console.log(cartItems)
     const { user } = useSelector(state => state.userSlice)
     const [searchTerm, setSearhTerm] = useState("")
+    const [isCartOpen, setIsCartOpen] = useState(false)
     return (
         <header className='header'>
+        {
+            isCartOpen 
+                &&
+            <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
+        }
             <div className='header__top'>
                 <div className="container">
                     <div className='header__top-wrapper'>
@@ -91,14 +100,18 @@ const Header = ({ setShowSidebar }) => {
                             <a href="tel:380950083933">+380950083933</a>
                         </div>
                         <div className='header__content-links'>
-                            {links.map((link, i) => (
-                                <div className='header__content-link' key={i}>
-                                    <Link to={link.path}>
-                                        {link.icon}
-                                    </Link>
-                                    <span>{link.count}</span>
-                                </div>
-                            ))}
+                            <div className='header__content-link'>
+                                <button><GiScales fontSize={24} /></button>
+                                <span>0</span>
+                            </div>
+                            <div className='header__content-link'>
+                                <button><AiOutlineHeart fontSize={24} /></button>
+                                <span>0</span>
+                            </div>
+                            <div onClick={() => setIsCartOpen(true)} className='header__content-link'>
+                                <button><AiOutlineShoppingCart fontSize={24} /></button>
+                                <span>0</span>
+                            </div>
                         </div>
                     </div>
                 </div>
