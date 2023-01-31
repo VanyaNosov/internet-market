@@ -14,7 +14,7 @@ const Product = ({ product: { name, price, img, reviews,
     const dispatch = useDispatch();
     const dispatchToCart = (id) => {
         const currentProduct = products?.find(prod => prod._id === id)
-        dispatch(addToCart({...currentProduct, quantity: 1}))
+        dispatch(addToCart({...currentProduct }))
     }
     return (
         <div className='product__wrapper'>

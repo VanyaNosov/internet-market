@@ -15,7 +15,7 @@ import Cart from '../Cart/Cart'
 
 const Header = ({ setShowSidebar }) => {
     const {cartItems} = useSelector(state => state.cartSlice);
-    console.log(cartItems)
+    const sumPrices = cartItems?.reduce((acc, el) => acc + el.quantity, 0)
     const { user } = useSelector(state => state.userSlice)
     const [searchTerm, setSearhTerm] = useState("")
     const [isCartOpen, setIsCartOpen] = useState(false)
@@ -110,7 +110,7 @@ const Header = ({ setShowSidebar }) => {
                             </div>
                             <div onClick={() => setIsCartOpen(true)} className='header__content-link'>
                                 <button><AiOutlineShoppingCart fontSize={24} /></button>
-                                <span>0</span>
+                                <span>{sumPrices}</span>
                             </div>
                         </div>
                     </div>

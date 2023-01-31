@@ -6,11 +6,8 @@ import CartItem from './CartItem/CartItem'
 
 const Cart = ({isCartOpen, setIsCartOpen}) => {
   const {cartItems} = useSelector(state => state.cartSlice);
-  console.log(cartItems)
-  const {products} = useSelector(state => state.productsSlice);
-  const sumPrices = products?.slice(0, 3).reduce((acc, el) => acc + el.price, 0)
-  console.log(products)
-  if(products.lenght === 0) {
+  const sumPrices = cartItems?.reduce((acc, el) => acc + (el.price * el.quantity), 0)
+  if(cartItems.lenght === 0) {
     return alert('хуй в корзине')
   }
   return (
@@ -21,7 +18,7 @@ const Cart = ({isCartOpen, setIsCartOpen}) => {
         <RxCross2 style={{cursor: 'pointer'}} fontSize={18} color='red'onClick={() => setIsCartOpen(false)}/>
       </div>
       <div className='cart__content'>
-        {products?.slice(0, 3).map(product => 
+        {cartItems?.map(product => 
           <CartItem key={product._id} item={product} />
         )}
       </div>
